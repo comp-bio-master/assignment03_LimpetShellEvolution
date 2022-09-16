@@ -4,9 +4,9 @@
 
 #to run:
 
-#bash admesh2tabdelimited.bash <admesh output file> 
+#bash admesh2tsv.bash <admesh output file> 
 
-#bash admesh2tabdelimited.bash admesh.out > admesh.tsv
+#bash admesh2tsv.bash admesh.out > admesh.tsv
 
 
 #These lines grab the information from the admesh output
