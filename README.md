@@ -4,7 +4,7 @@
 
 My lab has been studying the evolution of limpets in Hawaii.  They are a local delicacy and are under intense harvesting pressure.  We are interested in the selective pressures applied by overharvesting and how it affects the evolution of phenotypes.  
 
-We found that shell surface area is associate with human harvesting and want to use 3d scans of the limpet shells to more precisely test of effects of harvesting on phenotype. Here are some views of a 3d scan:
+We found that shell surface area is associate with human harvesting and want to use 3d scans of the limpet shells to more precisely test of effects of harvesting on phenotype. 
 
 ![alt text](https://github.com/tamucc-comp-bio-2020/classroom_repo/blob/master/lectures/Week03_files/3Dscan_limpetShell.PNG)
 
