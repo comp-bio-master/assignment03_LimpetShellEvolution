@@ -34,7 +34,13 @@ bash admesh2tsv.bash admesh.out > admesh.tsv
 
 * Complete the requested updates to the `admesh2tsv.bash` (see below)
 
-* I recommend testing function and troubleshooting as necessary after each change you make to the script
+* I HIGHLY recommend that you use your GUI text editor (NotePad++ or BBedit) to edit the script.
+    * you can copy the text in your script from your terminal to your text editor, make edits in the text editor, then copy back to the terminal
+
+* I recommend testing for proper function and troubleshooting as necessary after each change you make to the script
+
+* I also recommend that you copy and paste the lines of code you are editing/testing directly into the terminal
+    * once you have confirmed that the script works, line by line, then you can try to run the whole script
 
 * You may work in groups but each student must submit their own work.
 
