@@ -51,66 +51,67 @@ The script can be confusing at first, but it only really does two things.
 
 1. It employs `cat` to join a header with the tidy data and saves that into a file which is stored in the outputFile which is stored in the variable `$TIDYDATAFILE` which is provide as an argument at the command line.
 
-```bash
-#this is pseudo code, the (), <, and > are required and do something
-cat <(header) <(tidy data) > outputFile
-```
+   ```bash
+   #this is pseudo code, the (), <, and > are required and do something
+   cat <(header) <(tidy data) > outputFile
+   ```
 
 2. It extracts data from the `admesh.out` file in columns and joins the columns using `paste` to make the tidy data
 
-```bash
-#this is pseudo code, the (), <, and > are required and do something
-paste <(3D stl file names) <(Min and Max X) <(Min and Max Y) <(Min and Max Z) <(Number of Facets) <(shell volume) <(shell surface area)
-```
+   ```bash
+   #this is pseudo code, the (), <, and > are required and do something
+   paste <(3D stl file names) <(Min and Max X) <(Min and Max Y) <(Min and Max Z) <(Number of Facets) <(shell volume) <(shell surface area)
+   ```
 
 To be efficient, the intermediary steps are not saved into files and so, the business end of this script is one long pipeline and the escape character `\ ` is used to make it more readable by separating each component by line.
 
-```bash
-# this is pseudo code
-cat <(header) \
-<( \
-tidy data
-\) > output file
+   ```bash
+   # this is pseudo code
+   cat <(header) \
+   <( \
+   tidy data
+   \)
 
 
-# this is same pseudo code on 1 line
-cat <(header) <(tidy data) > output file
-```
-Expanding the tidy data in the previous code block:
+   # this is same pseudo code on 1 line
+   cat <(header) <(tidy data) 
+   ```
 
-```
-# this is pseudo code that describes the main portion of the script
-cat <(header) \
-<(\
-  paste <(3D stl file names) \
-    <(Min and Max X) \
-    <(Min and Max Y) \
-    <(Min and Max Z) \
-    <(Number of Facets) \
-    <(shell volume) \
-    <(shell surface area) \
-) > output file
+Expanding the "tidy data" in the previous pseudo code block (each line is creating a column of data):
 
-# this is same pseudo code on 1 line
-cat <(header) <(paste <(3D stl file names) <(Min and Max X) <(Min and Max Y) <(Min and Max Z) <(Number of Facets) <(shell volume) <(shell surface area)) > output file
-```
+   ```
+   # this is pseudo code that describes the main portion of the script
+   cat <(header) \
+   <(\
+     paste <(3D stl file names) \
+       <(Min and Max X) \
+       <(Min and Max Y) \
+       <(Min and Max Z) \
+       <(Number of Facets) \
+       <(shell volume) \
+       <(shell surface area) \
+   )
+
+   # this is same pseudo code on 1 line
+   cat <(header) <(paste <(3D stl file names) <(Min and Max X) <(Min and Max Y) <(Min and Max Z) <(Number of Facets) <(shell volume) <(shell surface area)) > output file
+   ```
 
 And here is the full bash code block for comparison to the pseudo code blocks above
 
-```bash
-cat <(echo -e FileName'\t'MinX'\t'MaxX'\t'MinY'\t'MaxY'\t'MinZ'\t'MaxZ'\t'FacetsBefore'\t'FacetsAfter'\t'Volume'\t'SurfArea) \
-<(\
-  paste -d '\t' <(grep '^Input file' $INPUTFILE | sed 's/ //g' | sed 's/Inputfile://g') \
-    <(grep '^Min X' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]X=//g' | tr "," "\t") \
-    <(grep '^Min Y' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]Y=//g' | tr "," "\t") \
-    <(grep '^Min Z' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]Z=//g' | tr "," "\t") \
-    <(grep '^Number of facets' $INPUTFILE |  sed 's/Number of facets  *: *//g' | sed 's/  */\t/g') \
-    <(grep 'Volume' $INPUTFILE |  sed 's/Number of parts *:.*Volume *: *//g') \
-    <(grep 'Surface area' $INPUTFILE |  sed 's/Degenerate facets *:.*Surface area *: *//g')\
-) > $TIDYDATAFILE
+   ```bash
+   cat <(echo -e FileName'\t'MinX'\t'MaxX'\t'MinY'\t'MaxY'\t'MinZ'\t'MaxZ'\t'FacetsBefore'\t'FacetsAfter'\t'Volume'\t'SurfArea) \
+   <(\
+     paste -d '\t' <(grep '^Input file' $INPUTFILE | sed 's/ //g' | sed 's/Inputfile://g') \
+       <(grep '^Min X' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]X=//g' | tr "," "\t") \
+       <(grep '^Min Y' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]Y=//g' | tr "," "\t") \
+       <(grep '^Min Z' $INPUTFILE |  sed 's/ //g' | sed 's/M[ai][nx]Z=//g' | tr "," "\t") \
+       <(grep '^Number of facets' $INPUTFILE |  sed 's/Number of facets  *: *//g' | sed 's/  */\t/g') \
+       <(grep 'Volume' $INPUTFILE |  sed 's/Number of parts *:.*Volume *: *//g') \
+       <(grep 'Surface area' $INPUTFILE |  sed 's/Degenerate facets *:.*Surface area *: *//g')\
+   ) 
 
-#this is not easily readable on 1 line
-```
+   #this is not easily readable on 1 line
+   ```
 
 
 ### Requested Updates
