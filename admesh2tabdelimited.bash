@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#this program takes output from admesh and makes a tidy table of the data
+#this program takes output from admesh and makes a tidy TSV
 
 #to run:
 
-#bash admesh2tabdelimited.bash <admesh output file> <tab-delimited file>
+#bash admesh2tabdelimited.bash <admesh output file> 
 
-#bash admesh2tabdelimited.bash admesh.out admesh.dat
+#bash admesh2tabdelimited.bash admesh.out > admesh.tsv
 
 
 #These lines grab the information from the admesh output
@@ -34,7 +34,7 @@ paste -d '\t' <(grep '^Input file' $INPUTFILE | sed 's/ //g' | sed 's/Inputfile:
 <(grep '^Number of facets' $INPUTFILE |  sed 's/Number of facets  *: *//g' | sed 's/  */\t/g') \
 <(grep 'Volume' $INPUTFILE |  sed 's/Number of parts *:.*Volume *: *//g') \
 <(grep 'Surface area' $INPUTFILE |  sed 's/Degenerate facets *:.*Surface area *: *//g')\
-) > $TIDYDATAFILE
+) 
 
 
 
