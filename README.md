@@ -10,29 +10,31 @@ We found that shell surface area is associate with human harvesting and want to 
 
 --- 
 
-## Description of Assignment (Due 09/18)
+## Description of Assignment
 
 * Clone the repository for this assignment to your home dir in your terminal. 
 
-* Ensure that the `admesh2tabdelimited.bash` script works by running it on the admesh.out data. This script converts the output of `admesh`, a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
+* Ensure that the `admesh2tsv.bash` script works by running it on the admesh.out data. This script converts the output of `admesh`, a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
 
 ```
 #this script takes output from admesh and makes a tidy TSV file
 
 #to run:
-#bash admesh2tabdelimited.bash <admesh output file> <tab-delimited file>
+#bash admesh2tsv.bash <admesh output file> <tab-delimited file>
 
-bash admesh2tabdelimited.bash admesh.out admesh.dat
+bash admesh2tsv.bash admesh.out
+
+bash admesh2tsv.bash admesh.out > admesh.tsv
 ```
 
-* Complete the requested updates to the `admesh2tabdelimited.bash` (see below)
+* Complete the requested updates to the `admesh2tsv.bash` (see below)
 
 * I recommend testing function and troubleshooting as necessary after each change you make to the script
 
 * You may work in groups but each student must submit their own work.
 
 ### Structure of Script
-The `admesh2tabdelimited.bash` script is functional, but hard to read and poorly commented.  We can employ variables to improve the readability of the script and reorganize the comments to improve it for future users.
+The `admesh2tsv.bash` script is functional, but hard to read and poorly commented.  We can employ variables to improve the readability of the script and reorganize the comments to improve it for future users.
 
 The script can be confusing at first, but it only really does two things.  
 
