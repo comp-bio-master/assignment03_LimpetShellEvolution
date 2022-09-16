@@ -14,13 +14,13 @@ We found that shell surface area is associate with human harvesting and want to 
 
 * Clone the repository for this assignment to your home dir in your terminal. 
 
-* Ensure that the `admesh2tsv.bash` script works by running it on the admesh.out data. This script converts the output of `admesh`, a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
+* Ensure that the `admesh2tsv.bash` script works by running it on the `admesh.out` data. This script converts the output of [`admesh`](https://admesh.readthedocs.io/en/latest/), a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
 
 ```
 #this script takes output from admesh and makes a tidy TSV file
 
 #to run:
-#bash admesh2tsv.bash <admesh output file> <tab-delimited file>
+#bash admesh2tsv.bash <admesh output file> 
 
 bash admesh2tsv.bash admesh.out
 
