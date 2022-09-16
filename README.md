@@ -17,7 +17,7 @@ We found that shell surface area is associate with human harvesting and want to 
 * Ensure that the `admesh2tabdelimited.bash` script works by running it on the admesh.out data. This script converts the output of `admesh`, a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
 
 ```
-#this script takes output from admesh and makes a tidy table of the data
+#this script takes output from admesh and makes a tidy TSV file
 
 #to run:
 #bash admesh2tabdelimited.bash <admesh output file> <tab-delimited file>
