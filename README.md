@@ -4,9 +4,14 @@
 
 My lab has been studying the evolution of limpets in Hawaii.  They are a local delicacy and are under intense harvesting pressure.  We are interested in the selective pressures applied by overharvesting and how it affects the evolution of phenotypes.  
 
-We found that shell surface area is associate with human harvesting and want to use 3d scans of the limpet shells to more precisely test of effects of harvesting on phenotype. 
+We found that shell surface area is associated with human harvesting and want to use 3d scans of the limpet shells to more precisely test of effects of harvesting on phenotype. 
 
 ![alt text](https://github.com/tamucc-comp-bio-2020/classroom_repo/blob/master/lectures/Week03_files/3Dscan_limpetShell.PNG)
+
+The image above is a rendered 3d scan, but the data file is in [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29) format.  An stl file is obtuse and not the easiest for a human to read.  Consequently, a tool to extract information from stl files, [admesh](https://admesh.readthedocs.io/en/latest/#), was created as a master's thesis.  I found this program and used it to extract the surface areas of the shells.  Note that I did also have to manipulate the stl files and clip off the bottom surface covering the shell aperature using a bash tool that I made (not included in this assignment).  
+
+The output of admesh is not tidy and I had to make a tool to tame it, `admesh2tsv.bash`. We are going to use and modify this script
+
 
 --- 
 
