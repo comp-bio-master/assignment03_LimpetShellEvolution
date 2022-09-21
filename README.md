@@ -18,6 +18,7 @@ The output of admesh is not tidy and I had to make a tool to tame it, `admesh2ts
 ## Description of Assignment
 
 * Clone the repository for this assignment to your home dir in your terminal. 
+   * make sure that you have set up your ssh security key (see Lecture 0) and use the "ssh" link when cloning
 
 * Ensure that the `admesh2tsv.bash` script works by running it on the `admesh.out` data. This script converts the output of [`admesh`](https://admesh.readthedocs.io/en/latest/), a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
 
