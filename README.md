@@ -20,7 +20,7 @@ The output of admesh is not tidy and I had to make a tool to wrangle it, `admesh
 
 You will be editing the admesh2tsv.bash script for this exercise.  Your goal is to update the script to store values gleaned from the admesh.out file into variables, and then use those variables to create the tsv file.  You will also create one additional column of data in the tsv that was gleaned from the admesh.out file. 
 
-* You may work in groups but each student must submit their own work.
+_You may work in groups but each student must submit their own work._
 
 
 <details><summary>Get started by cloning the repo and testing out admesh2tsv.bash</summary>
@@ -66,6 +66,9 @@ bash admesh2tsv.bash admesh.out > admesh.tsv
 
 
 ### Familiarizing Yourself With the Structure of Script
+
+<details><summary>Expand</summary>
+<p>
 
 The `admesh2tsv.bash` script is functional, but hard to read and poorly commented.  We can employ variables to improve the readability of the script and reorganize the comments to improve it for future users.
 
@@ -135,6 +138,12 @@ And here is the full bash code block for comparison to the pseudo code blocks ab
    #this is not easily readable on 1 line
    ```
 
+---
+
+</p>
+</details>
+
+---
 
 ### Requested Updates
 Generally, your task is to take each of the arguments passed to cat and paste, save them into variables that are logically named and defined after `TIDYDATAFILE=$2` and before the line beginning with `cat`.  Then use those variables as arguments passed to `cat` and `paste`.  The tricky part is that variables don't store tabs or ends of lines; those will be converted to spaces. You will have to use `echo`, `tr`, and sometimes `paste`, in that order, to convert the variables back into a tab delimited header row and columns within the arguments passed to `cat` and `paste`. Prior to each line you add or modify, add a comment that describes what is happening in the next line of code. Troubleshoot your changes until the script works.
