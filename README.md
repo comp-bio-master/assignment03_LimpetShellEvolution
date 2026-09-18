@@ -14,13 +14,21 @@ The output of admesh is not tidy and I had to make a tool to wrangle it, `admesh
 
 
 --- 
+---
 
 ## Description of Assignment
 
-* Clone the repository for this assignment to your home dir in your terminal. 
-   * make sure that you have set up your ssh security key (see Lecture 0) and use the "ssh" link when cloning
+You will be editing the admesh2tsv.bash script for this exercise.  Your goal is to update the script to store values gleaned from the admesh.out file into variables, and then use those variables to create the tsv file.  You will also create one additional column of data in the tsv that was gleaned from the admesh.out file. 
 
-* Ensure that the `admesh2tsv.bash` script works by running it on the `admesh.out` data. This script converts the output of [`admesh`](https://admesh.readthedocs.io/en/latest/), a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" data file.
+* You may work in groups but each student must submit their own work.
+
+
+<details><summary>Get started by cloning the repo and testing out admesh2tsv.bash</summary>
+<p>
+
+* Clone the repository for this assignment to your home dir in your terminal. 
+
+* Ensure that the `admesh2tsv.bash` script works by running it on the `admesh.out` data. This script converts the output of [`admesh`](https://admesh.readthedocs.io/en/latest/), a unix command to extract information from 3D scans stored in `stl` files, into a "tidy" tab separated values data file.
 
 ```
 #this script takes output from admesh and makes a tidy TSV file
@@ -33,19 +41,32 @@ bash admesh2tsv.bash admesh.out
 bash admesh2tsv.bash admesh.out > admesh.tsv
 ```
 
-* Complete the requested updates to the `admesh2tsv.bash` (see below)
+---
+
+</p>
+</details>
+
+<details><summary>Tips for Success</summary>
+<p>
 
 * I HIGHLY recommend that you use your GUI text editor (NotePad++ or BBedit) to edit the script.
-    * you can copy the text in your script from your terminal to your text editor, make edits in the text editor, then copy back to the terminal
+    * you can copy the text in your script from your terminal to your text editor (make sure the lines don't get cut off, if you can't see text in the terminal when you copy it, the text won't be copied), make edits in the text editor, then copy back to the terminal
 
 * I recommend testing for proper function and troubleshooting as necessary after each change you make to the script
 
 * I also recommend that you copy and paste the lines of code you are editing/testing directly into the terminal
     * once you have confirmed that the script works, line by line, then you can try to run the whole script
 
-* You may work in groups but each student must submit their own work.
+---
 
-### Structure of Script
+</p>
+</details>
+
+---
+
+
+### Familiarizing Yourself With the Structure of Script
+
 The `admesh2tsv.bash` script is functional, but hard to read and poorly commented.  We can employ variables to improve the readability of the script and reorganize the comments to improve it for future users.
 
 The script can be confusing at first, but it only really does two things.  
