@@ -203,7 +203,7 @@ cat <(echo $HEADER | tr " " "\t") \
 
 ```
 
-2. Following the style set in 1, save the first argument for paste, eg <(3D stl file names), to a variable named `FileNames` and use the variable `$FileNames` to pass the single column of data in the first argument to paste. Save changes and make sure this works (do this after every step).
+2. Following the style set in step 1, save the first argument for paste, eg <(3D stl file names), to a variable named `FileNames` and use the variable `$FileNames` to pass the single column of data in the first argument to paste. Save changes and make sure this works (do this after every step).
 
 3. Following the style set in 1, save the second argument for paste, eg <(Min and Max X), to a variable named `MinMaxX` and use the variable `$MinMaxX` to pass the 2 columns of data in the second argument to paste. Again, note that tabs and lines are removed when saving into a variable. We learned in Lecture2 how to replace spaces with line feeds (end of line) and in Lecture3 how to take a single column of data. 
 
