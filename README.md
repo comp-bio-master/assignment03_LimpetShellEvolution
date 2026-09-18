@@ -10,7 +10,7 @@ We found that shell surface area is associated with human harvesting and want to
 
 The image above is a rendered 3d scan, but the data file is in [STL](https://en.wikipedia.org/wiki/STL_%28file_format%29) format.  An stl file is obtuse and not the easiest for a human to read.  Consequently, a tool to extract information from stl files, [admesh](https://admesh.readthedocs.io/en/latest/#), was created as a master's thesis.  I found this program and used it to extract the surface areas of the shells.  Note that I did also have to manipulate the stl files and clip off the bottom surface covering the shell aperature using a bash tool that I made (not included in this assignment).  
 
-The output of admesh is not tidy and I had to make a tool to tame it, `admesh2tsv.bash`. We are going to use and modify this script
+The output of admesh is not tidy and I had to make a tool to wrangle it, `admesh2tsv.bash`. We are going to use and modify this script
 
 
 --- 
