@@ -146,11 +146,14 @@ And here is the full bash code block for comparison to the pseudo code blocks ab
 ---
 
 ### Requested Updates
-Generally, your task is to take each of the arguments passed to cat and paste, save them into variables that are logically named and defined after `TIDYDATAFILE=$2` and before the line beginning with `cat`.  Then use those variables as arguments passed to `cat` and `paste`.  The tricky part is that variables don't store tabs or ends of lines; those will be converted to spaces. You will have to use `echo`, `tr`, and sometimes `paste`, in that order, to convert the variables back into a tab delimited header row and columns within the arguments passed to `cat` and `paste`. Prior to each line you add or modify, add a comment that describes what is happening in the next line of code. Troubleshoot your changes until the script works.
+
+Generally, your task is to take each of the arguments passed to `cat` and `paste`, save them into variables that are logically named and defined after `TIDYDATAFILE=$2` and before the line beginning with `cat`.  Then use those variables as arguments passed to `cat` and `paste`.  The tricky part is that variables don't store tabs or end-of-line characters; those will be converted to spaces. You will have to use `echo`, `tr`, and sometimes `paste`, in that order, to convert the variables back into a tab delimited header row and columns within the arguments passed to `cat` and `paste`. Prior to each line you add or modify, add a comment that describes what is happening in the next line of code. Troubleshoot your changes until the script works.
 
 <details><summary>*Step by Step*</summary>
 <p>
+
 1. Rather than making the header inside the first argument for `cat`, after the line with `TIDYDATAFILE=$2`, insert a comment (e.g `# create header row and save to variable`).  In the following line, make a variable called HEADER and set it equal to the code that specifies the header.  Then pass the variable `$HEADER` to `cat` as the first argument.  Make sure the script works before going to step 2.  If you get stuck, post to our team on github.  I'll show you this one, the you will do the rest:
+
 ```bash
 # read in arguments from the command line
 INPUTFILE=$1
@@ -188,6 +191,7 @@ cat <(echo $HEADER | tr " " "\t") \
 </p>
 </details>
 
+---
 
 ### To `push` your changes to your repository on GitHub, and thus submit the assigment, do the following
 
@@ -196,7 +200,7 @@ cat <(echo $HEADER | tr " " "\t") \
 ```
 git add *
 git commit -m "updating my assignment"
-git push origin master
+git push
 ```
 
 Note that 
