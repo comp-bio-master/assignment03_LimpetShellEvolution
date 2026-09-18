@@ -149,14 +149,19 @@ And here is the full bash code block for comparison to the pseudo code blocks ab
 
 Generally, your task is to take each of the arguments passed to `cat` and `paste`, save them into variables that are logically named and defined after `TIDYDATAFILE=$2` and before the line beginning with `cat`.  Then use those variables as arguments passed to `cat` and `paste`.  The tricky part is that variables don't store tabs or end-of-line characters; those will be converted to spaces. You will have to use `echo`, `tr`, and sometimes `paste`, in that order, to convert the variables back into a tab delimited header row and columns within the arguments passed to `cat` and `paste`. Prior to each line you add or modify, add a comment that describes what is happening in the next line of code. Troubleshoot your changes until the script works.
 
-<details><summary>*Step by Step*</summary>
+<details><summary>*Step by Step Instructions*</summary>
 <p>
 
 0. Create a backup of your `admesh2tsv.bash` script named `admesh2tsv.bash.bak`.  This will ensure that you will have a saved copy of the working script prior to making edits.  While we could also employ `git` to recover the original version of the file, this will be an extra backup.
 
+```bash
+cp admesh2tsv.bash admesh2tsv.bash.bak
+```
+
 Note that before any edits, the functional part of the script looks like this:
 
-```bashINPUTFILE=$1
+```bash
+INPUTFILE=$1
 TIDYDATAFILE=$2
 cat <(echo -e FileName'\t'MinX'\t'MaxX'\t'MinY'\t'MaxY'\t'MinZ'\t'MaxZ'\t'FacetsBefore'\t'FacetsAfter'\t'Volume'\t'SurfArea) \
 <(\
@@ -170,7 +175,11 @@ paste -d '\t' <(grep '^Input file' $INPUTFILE | sed 's/ //g' | sed 's/Inputfile:
 ) 
 ```
 
-1. Rather than making the header inside the first argument for `cat`, after the line with `TIDYDATAFILE=$2`, insert a comment (e.g `# create header row and save to variable`).  In the following line, make a variable called HEADER and set it equal to the code that specifies the header.  Then pass the variable `$HEADER` to `cat` as the first argument.  Make sure the script works before going to step 2.  If you get stuck, post to our team on github.  I'll show you this one, the you will do the rest:
+I highly recommend that you use your GUI text editor (Notepad++ or BBedit) to modify the script.
+
+---
+
+1. Modify the script to look like the example below. Add a comment on the line before `INPUTFILE=$1` (e.g. `#read in arguments from the command line`). Rather than making the header inside the first argument for `cat`, after the line with `TIDYDATAFILE=$2`, insert a blank line and then a comment (e.g `# create header row and save to variable`).  On the following line, make a variable called HEADER and set it equal to the code that specifies the column names (e.g. `echo -e FileName'\t'MinX'\t'MaxX'\t'MinY'\t'MaxY'\t'MinZ'\t'MaxZ'\t'FacetsBefore'\t'FacetsAfter'\t'Volume'\t'SurfArea`).  Then pass the variable `$HEADER` to `cat` as the first argument.  Make sure the script works before going to step 2.  When you have completed this step, the functional code in your script should look like this:
 
 ```bash
 # read in arguments from the command line
